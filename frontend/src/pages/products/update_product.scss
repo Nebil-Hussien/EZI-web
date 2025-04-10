@@ -1,0 +1,222 @@
+.single {
+    display: flex;
+    width: 100%;
+    .singleContainer {
+      flex: 6;
+  
+      .top {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+  
+        .left {
+          flex: 1;
+          -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+          box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+          padding: 20px;
+          position: relative;
+  
+          .editButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            font-size: 12px;
+            color: #7451f8;
+            background-color: #7551f818;
+            cursor: pointer;
+            border-radius: 0px 0px 0px 5px;
+          }
+  
+          .item {
+            display: flex;
+            gap: 20px;
+  
+            .itemImg {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+  
+            .details {
+              .itemTitle {
+                margin-bottom: 10px;
+                color: #555;
+              }
+  
+              .detailItem {
+                margin-bottom: 10px;
+                font-size: 14px;
+  
+                .itemKey {
+                  font-weight: bold;
+                  color: gray;
+                  margin-right: 5px;
+                }
+  
+                .itemValue {
+                  font-weight: 300;
+                }
+              }
+            }
+          }
+        }
+  
+        .right {
+          flex: 2;
+        }
+      }
+  
+      .bottom {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 20px;
+        margin: 10px 20px;
+      }
+  
+      .title {
+        font-size: 16px;
+        color: lightgray;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+//   import "./single_product.scss";
+// import Sidebar from "../../components/sidebar/Sidebar";
+// import Navbar from "../../components/navbar/Navbar";
+
+// import {useParams} from 'react-router-dom';
+
+// import { useState,useEffect } from "react";
+// import axios from "axios";
+// const Update_Product = () => {
+   
+//   const { productId } = useParams("");
+//   const [product_name, setproductname] = useState("");
+//   const [price, setprice] = useState("");
+//   const [description, setdescription] = useState("");
+//   const [stock, setstock] = useState("");
+//   const [product_type, setproduct_type] = useState("");
+//   const [catagory, setcatagory] = useState("");
+//   const [supplier, setsupplier] = useState("");
+//   const [data_user,setData]=useState([]);
+//   useEffect(()=> {
+//       axios.post("http://localhost:3001/product/byid",{product_id: productId}).then((response) =>{
+// setData(response.data[0]);
+// // setproductname(data_user.name);
+// // setprice(data_user.price);
+// // setdescription(data_user.Description);
+// // setstock(data_user.Stock);
+// // setproduct_type(data_user.product_type_id);
+// // setcatagory(data_user.catagory_id);
+// // setsupplier(data_user.supplier_id);
+
+//       } )
+    
+  
+//     }, [])
+//     const [catagories, setcatagories] = useState([]);
+
+//     useEffect(() => {
+//       fetch('http://localhost:3001/catagory/all')
+//         .then(res => res.json())
+//         .then(data => {
+//           setcatagories(data);
+//         });
+//     }, []);
+//     const [product_types, setproduct_types] = useState([]);
+    
+//     useEffect(() => {
+//       fetch('http://localhost:3001/producttype/all')
+//         .then(res => res.json())
+//         .then(data => {
+//           setproduct_types(data);
+//         });
+//     }, []);
+//     const [suppliers, setsuppliers] = useState([]);
+
+//     useEffect(() => {
+//       fetch('http://localhost:3001/supplier')
+//         .then(res => res.json())
+//         .then(data => {
+//           setsuppliers(data);
+//         });
+//     }, []);
+//     const [state, setState] = useState([]);
+
+//   return (
+//     <div className="single">
+//       <Sidebar />
+//       <div className="singleContainer">
+//         <Navbar />
+//         <div className="top">
+//           <div className="left">
+//             <h1 className="title">Information</h1>
+//             <div className="item">
+//               <img
+//                 src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+//                 alt=""
+//                 className="itemImg"
+//               />
+//               <div className="details">
+//               <input type="text"  value={data_user.name}  required onChange={(e)=> setproductname(e.target.value)}/>
+              
+//                 <div className="detailItem">
+//                   <span className="itemKey">Price:</span>
+//                   <input type="text"  value={data_user.price} required onChange={(e)=> setprice(e.target.value)}/>
+//                 </div>
+//                 <div className="detailItem">
+//                   <span className="itemKey">Description:</span>
+//                   <input type="text" value={data_user.Description} required onChange={(e)=> setdescription(e.target.value)}/>
+                  
+//                 </div>
+//                 <div className="detailItem">
+//                   <span className="itemKey">Stock:</span>
+//                   <input type="text"  value={data_user.Stock} required onChange={(e)=> setstock(e.target.value)}/>
+                
+//                 </div>
+//                 <div className="detailItem">
+//                   <span className="itemKey">Catagory:</span>
+//                   <select  required onChange={(e)=> setcatagory(e.target.value)}>
+//                        <option value={data_user.catagory_id}>{data_user.catagory_name}</option>
+//                            {catagories.map(catagory => (
+//                        <option value={catagory.catagory_id}>{catagory.catagory_name}</option>
+//                            ))}
+//                  </select>
+                
+                
+//                 </div>
+//                 <div className="detailItem">
+//                   <span className="itemKey">Product Type:</span>
+//                   <select required onChange={(e)=> setproduct_type(e.target.value)}>
+//                        <option value={data_user.product_type_id}>{data_user.product_type}</option>
+//                            {product_types.map(type => (
+//                        <option value={type.product_type_id}>{type.product_type}</option>
+//                            ))}
+//                  </select>
+//                 </div>
+             
+//                 <div className="detailItem">
+//                   <span className="itemKey">Supplier:</span>
+//                   <select required onChange={(e)=> setsupplier(e.target.value)}>
+//                        <option value={data_user.suppiler_id}>{data_user.business_name}</option>
+//                            {suppliers.map(supplier => (
+//                        <option value={supplier.suppiler_id}>{supplier.business_name}</option>
+//                            ))}
+//                  </select>
+//                 </div>
+//                 <button style={{ backgroundColor: 'darkblue' }}>Update</button>
+//               </div>
+//             </div>
+//           </div>
+         
+//         </div>
+        
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Update_Product;
